@@ -9,8 +9,15 @@ function getComputerChoice() {
     } else if (random === 1) {
         return "Paper";
     } else {
-        return "scissors";
+        return "Scissors";
     }
 }
 
-getComputerChoice();
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    let playerSelectionBody = playerSelection.substring(1);
+    let playerSelectionFirst = playerSelection.charAt(0).toUpperCase();
+    playerSelection = playerSelectionFirst + playerSelectionBody;
+}
+
+playRound("ScIsSoRs", getComputerChoice());
