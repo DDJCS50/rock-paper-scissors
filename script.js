@@ -48,11 +48,23 @@ function playRound(playerSelection, computerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
+let roundWinner;
 
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound(prompt("Which sign would you like to choose? "), getComputerChoice());
+        roundWinner = playRound(prompt("Which sign would you like to choose? "), getComputerChoice());
+        console.log(roundWinner);
+        console.log(`Player: ${playerScore}`);
+        console.log(`Computer: ${computerScore}`);
+    }
+
+    if (playerScore > computerScore) {
+        console.log("You Win The Game!");
+    } else if (playerScore < computerScore) {
+        console.log("You Lose The Game!");
+    } else {
+        console.log("You Tied The Game!");
     }
 }
 
