@@ -52,12 +52,11 @@ let roundWinner;
 
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        roundWinner = playRound(prompt("Which sign would you like to choose? "), getComputerChoice());
-        console.log(roundWinner);
-        console.log(`Player: ${playerScore}`);
-        console.log(`Computer: ${computerScore}`);
-    }
+    roundWinner = playRound(prompt("Which sign would you like to choose? "), getComputerChoice());
+    console.log(roundWinner);
+    console.log(`Player: ${playerScore}`);
+    console.log(`Computer: ${computerScore}`);
+    
 
     if (playerScore > computerScore) {
         console.log("You Win The Game!");
