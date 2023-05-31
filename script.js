@@ -48,24 +48,30 @@ let roundWinner;
 let playerChoice;
 
 const results = document.getElementById('results');
-let paragraph = document.createElement('p');
-results.appendChild(paragraph);
+let paragraphAnnounceWinner = document.createElement('p');
+let paragraphPlayerScore = document.createElement('p');
+let paragraphComputerScore = document.createElement('p');
+let paragraphGameWinner = document.createElement('p');
+results.appendChild(paragraphAnnounceWinner);
+results.appendChild(paragraphPlayerScore);
+results.appendChild(paragraphComputerScore);
+results.appendChild(paragraphGameWinner);
 
 function game() {
     roundWinner = playRound(playerChoice, getComputerChoice());
     
-    paragraph.innerText = roundWinner;
-    
-    console.log(`Player: ${playerScore}`);
-    console.log(`Computer: ${computerScore}`);
+    paragraphAnnounceWinner.innerText = roundWinner;
+    paragraphPlayerScore.innerText = `Player: ${playerScore}`;
+    paragraphComputerScore.innerText = `Computer: ${computerScore}`;
+    paragraphGameWinner.innerText = "";
     
 
     if (playerScore > 4) {
-        console.log("You Win The Game!");
+        paragraphGameWinner.innerText = "You Win The Game!";
         playerScore = 0;
         computerScore = 0;
     } else if (computerScore > 4) {
-        console.log("You Lose The Game!");
+        paragraphGameWinner.innerText = "You Lose The Game!";
         playerScore = 0;
         computerScore = 0;
     }
@@ -77,7 +83,6 @@ const buttonPressedRock = document.getElementById('rock');
 buttonPressedRock.addEventListener('click', (event) => {
     event.stopPropagation();
     playerChoice = 'Rock';
-    console.log(playerChoice);
     game();
 });
 
@@ -85,7 +90,6 @@ const buttonPressedPaper = document.getElementById('paper');
 buttonPressedPaper.addEventListener('click', (event) => {
     event.stopPropagation();
     playerChoice = 'Paper';
-    console.log(playerChoice);
     game();
 });
 
@@ -93,6 +97,5 @@ const buttonPressedScissors = document.getElementById('scissors');
 buttonPressedScissors.addEventListener('click', (event) => {
     event.stopPropagation();
     playerChoice = 'Scissors';
-    console.log(playerChoice);
     game();
 });
