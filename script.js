@@ -14,10 +14,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    let playerSelectionBody = playerSelection.substring(1);
-    let playerSelectionFirst = playerSelection.charAt(0).toUpperCase();
-    playerSelection = playerSelectionFirst + playerSelectionBody;
 
     if (computerSelection === "Rock" && playerSelection === "Scissors") {
         computerScore++;
@@ -49,10 +45,11 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner;
+let playerChoice;
 
 
 function game() {
-    roundWinner = playRound(prompt("Which sign would you like to choose? "), getComputerChoice());
+    roundWinner = playRound(playerChoice, getComputerChoice());
     console.log(roundWinner);
     console.log(`Player: ${playerScore}`);
     console.log(`Computer: ${computerScore}`);
@@ -67,4 +64,28 @@ function game() {
     }
 }
 
-game();
+
+
+const buttonPressedRock = document.getElementById('rock');
+buttonPressedRock.addEventListener('click', (event) => {
+    event.stopPropagation();
+    playerChoice = 'Rock';
+    console.log(playerChoice);
+    game();
+});
+
+const buttonPressedPaper = document.getElementById('paper');
+buttonPressedPaper.addEventListener('click', (event) => {
+    event.stopPropagation();
+    playerChoice = 'Paper';
+    console.log(playerChoice);
+    game();
+});
+
+const buttonPressedScissors = document.getElementById('scissors');
+buttonPressedScissors.addEventListener('click', (event) => {
+    event.stopPropagation();
+    playerChoice = 'Scissors';
+    console.log(playerChoice);
+    game();
+});
