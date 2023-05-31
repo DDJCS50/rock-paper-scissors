@@ -47,20 +47,27 @@ let computerScore = 0;
 let roundWinner;
 let playerChoice;
 
+const results = document.getElementById('results');
+let paragraph = document.createElement('p');
+results.appendChild(paragraph);
 
 function game() {
     roundWinner = playRound(playerChoice, getComputerChoice());
-    console.log(roundWinner);
+    
+    paragraph.innerText = roundWinner;
+    
     console.log(`Player: ${playerScore}`);
     console.log(`Computer: ${computerScore}`);
     
 
-    if (playerScore > computerScore) {
+    if (playerScore > 4) {
         console.log("You Win The Game!");
-    } else if (playerScore < computerScore) {
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore > 4) {
         console.log("You Lose The Game!");
-    } else {
-        console.log("You Tied The Game!");
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
