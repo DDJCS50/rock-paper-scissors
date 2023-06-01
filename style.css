@@ -14,6 +14,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    gap: 16px;
 }
 
 body {
@@ -28,29 +29,41 @@ body {
 }
 
 #rock {
-
+    background-color: grey;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: large;
 }
 
 #paper {
-
+    background-color: azure;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: large;
 }
 
 #scissors {
-
+    background-color: silver;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: large;
 }
 
 #results {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: x-large;
 }
 
 #header {
     justify-content: center;
     background-color: darkgray;
+    font-weight: bolder;
 }
 
 #footer {
     justify-content: center;
     background-color: darkgray;
+    font-weight: lighter;
 }
